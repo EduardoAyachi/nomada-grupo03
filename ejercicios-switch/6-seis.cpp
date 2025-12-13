@@ -54,6 +54,7 @@ int main() {
         cout << "La fecha " << dia << "/" << mes << "/" << anio << " es válida" << endl;
     } else {
         cout << "El fecha " << dia << "/" << mes << "/" << anio << " es inválida" << endl;
+    }
 
     return 0;
 }
