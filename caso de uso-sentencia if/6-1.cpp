@@ -18,26 +18,30 @@ int main() {
     cout << "Ingresa los segundos (0-59): ";
     cin >> ss;
 
-    if (cin.fail() || (hh < 0 || hh > 23 || mm < 0 || mm > 59 || ss < 0 || ss > 59)){
-        cout << "Error: Ingrese un número entero, positivo, dentro del rango" << endl;
+    if (cin.fail()){
+        cout << "Error: Ingrese un número entero y que sea positivo" << endl;
+        return 0;
+    }
+
+    if (hh < 0 || hh > 23 || mm < 0 || mm > 59 || ss < 0 || ss > 59){
+        cout << "Hora esta fuera del rango" << endl;
         return 0;
     }
 
     ss++;
 
     if (ss == 60){
-        ss = 00;
+        ss = 0;
         mm++;
-    }
-
-    if (mm == 60){
-        mm = 00;
-        hh++;
-    }
-
-    if (hh == 24) hh = 00;
-
-    cout << "La hora al segundo siguiente es: " << hh << " : " << mm << " : " << ss << endl;   
+        if (mm == 60){
+            mm = 0;
+            hh++;
+            if (hh == 24){
+                hh = 0;
+            }
+        }    
+    }    
+    cout << "La hora al segundo siguiente es: " << hh << " : " << mm << " : " << ss << endl;
 
     return 0;
 }

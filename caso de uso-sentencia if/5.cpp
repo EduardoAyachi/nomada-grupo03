@@ -12,6 +12,11 @@ int main() {
     cout << "Ingrese el promedio el alumno: ";
     cin >> promedio;
 
+    if (cin.fail()){
+        cout << "Error: Debes ingresar un número." << endl;
+        return 0;
+    }
+
     if (promedio < 0 || promedio > 20){
         cout << "Ingreso datos erroneos, ingrese números del 1-20" << endl;
         return 0;}
